@@ -17,7 +17,7 @@ export default {
   display: flex;
   line-height: 44px;
   text-align: center;
-  box-shadow: 0 1px 3px #636363;
+  box-shadow: 0 1px 5px #a58484;
 }
 .left,
 .right{
