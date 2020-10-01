@@ -1,13 +1,14 @@
 <template>
-  <h2>分类</h2>
+  <h2>wdnmd</h2>
 </template>
 
 <script>
+import bs from 'better-scroll'
+
 export default {
-  name: 'Category'
+  name: 'Category',
 }
 </script>
 
 <style scoped>
-  
 </style>
