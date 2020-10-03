@@ -2,10 +2,16 @@
   <div>
     <nav-bar>
       <div slot="left" class="icon-back" @click="backClick">
-        <img src="~assets/imgs/common/back.svg">
+        <img src="~assets/imgs/common/back.svg" />
       </div>
       <div slot="center" class="detail-title">
-        <div class="d-title-item" :class="{active: index===currentIndex}" v-for="(item, index) in titles" :key="index" @click="titleClick(index)">
+        <div
+          class="d-title-item"
+          :class="{ active: index === currentIndex }"
+          v-for="(item, index) in titles"
+          :key="index"
+          @click="titleClick(index)"
+        >
           {{ item }}
         </div>
       </div>
@@ -14,27 +20,28 @@
 </template>
 
 <script>
-import NavBar from 'components/common/navbar/NavBar'
+import NavBar from "components/common/navbar/NavBar";
 export default {
-  name: 'DetailNavBar',
-  components:{
-    NavBar
+  name: "DetailNavBar",
+  components: {
+    NavBar,
   },
-  data(){
-    return{
-      titles: ['商品','参数','评论','推荐'],
-      currentIndex: 0
-    }
+  data() {
+    return {
+      titles: ["商品", "参数", "评论", "推荐"],
+      currentIndex: 0,
+    };
   },
-  methods:{
-    titleClick(index){
+  methods: {
+    titleClick(index) {
       this.currentIndex = index;
+      this.$emit("titleClick", index);
     },
-    backClick(){
+    backClick() {
       this.$router.back();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -45,10 +52,10 @@ export default {
   flex: 1;
   font-size: 13;
 }
-.active{
+.active {
   color: var(--color-high-text);
 }
-.icon-back img{
+.icon-back img {
   margin-top: 13px;
 }
 </style>

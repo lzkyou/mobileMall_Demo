@@ -40,9 +40,10 @@ import HomeRecommendView from "./childComps/HomeRecommendView";
 import HomeFutureView from "./childComps/HomeFutureView";
 
 import { getHomeMultidata, getHomeGoods } from "network/home";
+import { backTopMixin } from "common/mixin"
 import { debounce } from "common/utils"
 import Scroll from "components/common/scroll/Scroll";
-import BackTop from "components/content/backTop/BackTop";
+// import BackTop from "components/content/backTop/BackTop";
 
 export default {
   name: "Home",
@@ -54,8 +55,9 @@ export default {
     HomeRecommendView,
     HomeFutureView,
     Scroll,
-    BackTop,
+    // BackTop,
   },
+  mixins: [backTopMixin],
   data() {
     return {
       banners: [],
@@ -67,7 +69,7 @@ export default {
         sell: { page: 0, list: [] },
       },
       currentType: "pop",
-      isShowBackTop: false,
+      // isShowBackTop: false,
       tabOffsetTop: 0,
       isTabFixed: false,
       saveY: 0
@@ -123,11 +125,11 @@ export default {
     },
     swiperImgLoad(){
       this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop;
-      console.log(this.$refs.tabControl2.$el.offsetTop);
+      // console.log(this.$refs.tabControl2.$el.offsetTop);
     },
-    backTop() {
-      this.$refs.scroll.scrollTo(0, 0);
-    },
+    // backTop() {
+    //   this.$refs.scroll.scrollTo(0, 0);
+    // },
     loadMore(){//上拉加载更多
       this.getHomeGoods(this.currentType);
     },
