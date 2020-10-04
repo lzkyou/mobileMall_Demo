@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" v-show="show">
+  <div class="toast" v-show="isShow">
     <div>{{message}}</div>
   </div>
 </template>
@@ -15,12 +15,12 @@ export default {
   },
   methods:{
     show(message,duration){
-      this.show=true;
+      this.isShow=true;
       this.message=message
       setTimeout(() => {
-        this.show=false;
+        this.isShow=false;
         this.message='';
-      }, duration);
+      }, duration)
     }
   },
   props:{
@@ -46,5 +46,6 @@ export default {
     transform: translate(-50%,-50%);
     color: #fff;
     border-radius: 10px;
+    z-index: 99;
   }
 </style>

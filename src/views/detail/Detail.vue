@@ -116,7 +116,7 @@ export default {
         //   this.message='';
         // }, 1500);
 
-        this.$toast.show(res,1500);
+        this.$toast.show(res,5000);
         console.log(this.$toast);
       })
     }
